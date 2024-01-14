@@ -8,7 +8,25 @@
 </head>
 <body style="margin: 0; padding: 0;border: 0;">
 <div class="container">
-	<img class = "background-img" src="img/home_back.png" alt="Background Image"> 
-</div>
+	<img class = "background-img" src="img/home_back.png" alt="Background Image"/>
+	<a href="webPage/item1.html"><img  class = "item-img" style = "   top: 64.218%; left: 3.796%;" src="img/menu_item_1.png"/></a>
+	<a href="webPage/item2.html"><img  class = "item-img" style = "   top: 64.218%; left: 35.277%;" src="img/menu_item_2.png"/></a>
+	<a href="webPage/item3.html"><img  class = "item-img" style = "   top: 64.218%; left: 67.870%;" src="img/menu_item_3.png"/></a>
+	<a href="webPage/item4.html"><img  class = "item-img" style = "   top: 77.239%; left: 17.685%;" src="img/menu_item_4.png"/></a>
+	<a href="webPage/item5.html"><img  class = "item-img" style = "   top: 77.239%; left: 51.481%;" src="img/menu_item_5.png"/></a>	
+	</div>
+	<script>
+    // 使用 JavaScript 在頁面加載時滾動到底部
+    window.onload = function() {
+      // 獲取頁面的高度
+      var body = document.body,
+          html = document.documentElement;
+
+      var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+      // 滾動到頁面底部
+      window.scrollTo(0, height);
+    };
+  </script>
 </body>
 </html>
