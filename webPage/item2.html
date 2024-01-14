@@ -7,6 +7,34 @@
 <title>龍情密意</title>
 </head>
 <body style="margin: 0; padding: 0;border: 0;">
-龍情密意
+<div class="container">	
+	<img class = "background-img" id = "background-image" src="../img/item2_back.jpg" alt="Background Image"/>
+	<div class = "format-div" id="format">
+	<img  class = "item-img"  style = "height: 13.958%; top: 63.177%; left: 41.018%;" src="../img/item2_anim.gif"/>
+	<a href="../webPage/item2_1.html"><img  class = "item-img"  style = " height: 10.520%; top: 89.479%; left: 36.296%;" src="../img/item2_start.png"/></a>
+	
+	</div>
+
+</div>
+	
+	<script>
+	    // 使用 JavaScript 在頁面加載時滾動到底部
+	    window.onload = function() {
+	        // 獲取頁面的高度
+	        var body = document.body,
+	            html = document.documentElement;
+
+	        var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+
+	        // 滾動到頁面底部
+	        window.scrollTo(0, height);
+			
+			// 定位程式碼
+	        const img = document.getElementById('background-image');
+	        const div = document.getElementById('format');
+
+	        div.style.width = img.width + 'px';
+	        div.style.height = img.height + 'px';
+	    }; </script>
 </body>
 </html>
