@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../css/style.css">
 <title>龍情密意</title>
+<script src="../script/common.js" defer></script>
 </head>
 <body style="margin: 0; padding: 0;border: 0;">
 <div class="container">	
@@ -16,25 +17,6 @@
 	</div>
 
 </div>
-	
-	<script>
-	    // 使用 JavaScript 在頁面加載時滾動到底部
-	    window.onload = function() {
-	        // 獲取頁面的高度
-	        var body = document.body,
-	            html = document.documentElement;
 
-	        var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-
-	        // 滾動到頁面底部
-	        window.scrollTo(0, height);
-			
-			// 定位程式碼
-	        const img = document.getElementById('background-image');
-	        const div = document.getElementById('format');
-
-	        div.style.width = img.width + 'px';
-	        div.style.height = img.height + 'px';
-	    }; </script>
 </body>
 </html>
