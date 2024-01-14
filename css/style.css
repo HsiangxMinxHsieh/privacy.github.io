@@ -1,15 +1,18 @@
 body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
+  overflow: hidden;
 }
 .container {
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 .background-img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
 }
