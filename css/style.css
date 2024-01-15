@@ -38,8 +38,7 @@ body, html {
   object-fit: cover;
   z-index: 2;
 }
-.item-img {
- 
+.item-img { 
   position: absolute;
   z-index: 4;
 }
