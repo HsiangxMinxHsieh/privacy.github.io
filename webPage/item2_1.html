@@ -2,14 +2,88 @@
 <html lang="zh-Hant">
 
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
-    <title>乾卦詩籤</title>
+ 	<title>乾掛詩籤</title>
+<!--    <script src="../script/common.js" defer></script>-->
+
+    <style>
+		.main {
+  			margin: 0;
+  			padding: 0;
+			/*  background: lemonchiffon;*/
+  			overflow: scroll; /* 隱藏超出容器的部分 */
+  			height: 100%;
+		}
+		.container {
+		  width: 100vw;
+		  height: 100vh;
+		  overflow: scroll; /* 隱藏超出容器的部分 */
+		  position: relative; /* 新增 */
+		  z-index: 0;
+		}
+        #page_mask {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			object-fit: cover;
+            transition: opacity 3s;
+            opacity: 1;
+            display: block;
+            position: absolute;           
+            z-index: 10;
+        }
+
+        #lot_result {
+			width: 100%;
+			height: auto;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9;
+			overflow:scroll
+        }
+    </style>
 </head>
 
-<body style="margin: 0; padding: 0;border: 0;">
-    開始求籤
+<body style="margin: 0; padding: 0; border: 0;">
+    <div class="container"> 
+        <img class="background-img" id="page_mask" src = "../img/item2_1_start_back.png" alt="Mask Image" />
+        <img id="lot_result" alt="Lot Result" />
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pageMask = document.getElementById('page_mask');
+            var lotResult = document.getElementById('lot_result');
+
+            // 隨機抽取 lot 圖片
+            var lotImages = [
+                '../img/item2_lot1.png',
+                '../img/item2_lot2.png',
+                '../img/item2_lot3.png',
+                '../img/item2_lot4.png',
+                '../img/item2_lot5.png',
+                '../img/item2_lot6.png',
+                '../img/item2_lot7.png'
+            ];
+
+            var randomLotIndex = Math.floor(Math.random() * lotImages.length);
+            var selectedLotImage = lotImages[randomLotIndex];
+
+            // 將 lot 圖片設定為抽取的結果
+            lotResult.src = selectedLotImage;
+
+            // 在 3 秒後淡出 page_mask
+            setTimeout(function () {
+                pageMask.style.opacity = '0';
+                // 在淡出完成後隱藏 page_mask              
+                pageMask.style.display = 'none';
+            
+            }, 3000);
+        });
+    </script>
 </body>
 
 </html>

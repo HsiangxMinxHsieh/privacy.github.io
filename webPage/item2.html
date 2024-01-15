@@ -26,7 +26,7 @@
             <img class="item-img" id="btn_start" style=" height: 10.520%; top: 89.479%; left: 36.296%;" src="../img/item2_btn_start.png" />
 			
         </div>
-		<img class="background-img" id="page_mask"  style="z-index: 10" src="../img/item2-1_back.png" alt="Background Image" />
+		<img class="background-img" id="page_mask"  style="z-index: 10" src="../img/item2_1_start_back.png" alt="PageMask Image" />
     </div>
 	<script>
 		    document.addEventListener('DOMContentLoaded', function () {
@@ -46,6 +46,11 @@
 
             // 淡入效果
             pageMask.style.opacity = '1';
+			
+			 // 延遲3秒後跳轉到 item2-1.html
+            setTimeout(function () {
+                window.location.href = 'item2_1.html';
+            }, 3000);
         });
     });
 		
