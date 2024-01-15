@@ -13,17 +13,16 @@ document.addEventListener('DOMContentLoaded', function () {
  });
 
    // 定位程式碼
- 	const imgage = document.getElementById('background-image');
-  if (imgage) {
-        imgage.onload = function() {
-            const divformat = document.getElementById('frame-item');
-            const rect = imgage.getBoundingClientRect();
-            divformat.style.width = rect.width + 'px';
-            divformat.style.height = rect.height + 'px';
-            console.log("Frame寬高使用Script設定完成, reac.width=>" + rect.width + " rect.height=>" + rect.height);
-        };
-   }
-   else {
-       console.error("無法找到背景圖片 (background-image) 元素。");
-   }
+ 	
+  
+window.onload = function() {
+	const imgage = document.getElementById('background-image');
+    const divformat = document.getElementById('frame-item');
+    const rect = imgage.getBoundingClientRect();
+    divformat.style.width = rect.width + 'px';
+    divformat.style.height = rect.height + 'px';
+    console.log("Frame寬高使用Script設定完成, reac.width=>" + rect.width + " rect.height=>" + rect.height);
+};
+   
+
 
