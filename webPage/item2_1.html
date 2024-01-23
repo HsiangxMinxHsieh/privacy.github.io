@@ -23,36 +23,50 @@
 		  position: relative; /* 新增 */
 		  z-index: 0;
 		}
-        #page_mask {
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			object-fit: cover;
-            transition: opacity 3s;            
-            display: block;
-            position: absolute;           
-            z-index: 10;
-			animation: fadeout 3s forwards;
-            animation-timing-function: ease-in
+     
+ 		.background_big {
+			width: 100%;
+			height: auto;
+            position: absolute;          
+            left: 50%;
+            transform: translate(-50%, 0%);
+            z-index: 5;
+			overflow-y:scroll
+        }
+		.bottom_img {
+			width: 100%;
+			height: auto;
+            position: absolute;          
+            left: 50%;
+			bottom: 0;
+            transform: translate(-50%,470%);
+            z-index: 8;
+			overflow-y:scroll
         }
 		
-		
-
-        @keyframes fadeout {
-            from {
-                opacity: 1;
-            }
-
-            to {
-               opacity: 0;
-            }
+		.image-container {
+            position: relative;
+            display: inline-block;
         }
 
+        .button_container {
+/*
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);           
+            padding: 10px;
+            border-radius: 5px;
+*/
+      
+           
+  
+        }    
+		
         #lot_result {
 			width: 100%;
 			height: auto;
-            position: absolute;
-          
+            position: absolute;          
             left: 50%;
             transform: translate(-50%, 0%);
             z-index: 9;
@@ -63,13 +77,19 @@
 
 <body style="margin: 0; padding: 0; border: 0;">
     <div class="container"> 
-        <img class="background-img" id="page_mask" src = "../img/item2_1_start_back.png" alt="Mask Image" /> 
-		<img id="lot_result" alt="Lot Result" />
+		<img class="background_big" src="../img/item2_1_back_white.png"/>
+        <img class="background-img" id="page_mask" src = "../img/item2_1_start_back.png"  /> 
+		<img id="lot_result" style="z-index: 9" />
+		<div class="button_container">
+			<img class="bottom_img" src="../img/item2_1_back.png"/>
+			  <a href="../index.html"><img class="item-img" style="  height: 9.677%; top: 84.114%; left: 75.098%;" src="../img/menu_item_5.png" /></a>
+		</div>
     </div>
+	
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var pageMask = document.getElementById('page_mask');
+          
             var lotResult = document.getElementById('lot_result');
 
             // 隨機抽取 lot 圖片
@@ -89,20 +109,8 @@
             // 將 lot 圖片設定為抽取的結果
             lotResult.src = selectedLotImage;
 			
-            // 顯示 page_mask
-            pageMask.style.display = 'block';
 
-			lotResult.style.width = pageMask.style.width;
-//			// 初始設定，透明度是1，同時啟用 transition 效果
-//			pageMask.style.transition = 'opacity 3s';
-//			pageMask.style.opacity = '1';
-//            // 在 3 秒後淡出 page_mask
-//            setTimeout(function () {
-//                pageMask.style.opacity = '1';
-//                // 在淡出完成後隱藏 page_mask              
-////                pageMask.style.display = 'none';
-//            
-//            }, 3000);
+
         });
     </script>
 </body>
