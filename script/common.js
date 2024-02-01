@@ -12,16 +12,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
  });
 
-   // 定位程式碼
- 	
-  
-window.onload = function() {
+ // 定位程式碼	
+  window.onload = function() {
 	const imgage = document.getElementById('background-image');
     const divformat = document.getElementById('frame-item');
     const rect = imgage.getBoundingClientRect();
     divformat.style.width = rect.width + 'px';
     divformat.style.height = rect.height + 'px';
-    console.log("Frame寬高使用Script設定完成, reac.width=>" + rect.width + " rect.height=>" + rect.height);
+    console.log("Frame寬高使用Script設定完成,reac.width=>" + rect.width + "rect.height=>" + rect.height);
+       
+    // 將圖片寬度存儲在全域變量中
+    window.backgroundImageWidth  = rect.width;
+	window.localStorage.setItem('backgroundImageWidth', rect.width);
 };
    
 

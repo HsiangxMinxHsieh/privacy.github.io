@@ -16,16 +16,13 @@
   			overflow: scroll; /* 隱藏超出容器的部分 */
   			height: 100%;
 		}
-		.container {
-		  width: 100vw;
-		  height: 100vh;
+		.container {		
 		  overflow: scroll; /* 隱藏超出容器的部分 */
-		  position: relative; /* 新增 */
+		  position: relative;
 		  z-index: 0;
 		}
      
  		.background_big {
-			width: 100%;
 			height: auto;
             position: absolute;          
             left: 50%;
@@ -34,7 +31,6 @@
 			overflow-y:scroll
         }
 		.bottom_img {
-			width: 100%;
 			height: auto;
             position: absolute;          
             left: 50%;
@@ -50,16 +46,10 @@
         }
 
         .button_container {
-/*
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);           
-            padding: 10px;
-            border-radius: 5px;
-*/
-      
-           
+			display: flex;
+			
+
+			z-index: 3;          
   
         }    
 		
@@ -77,13 +67,13 @@
 
 <body style="margin: 0; padding: 0; border: 0;">
     <div class="container"> 
-		<img class="background_big" src="../img/item2_1_back_white.png"/>
-        <img class="background-img" id="page_mask" src = "../img/item2_1_start_back.png"  /> 
+		<img class="background_big" id="back_white" src="../img/item2_1_back_white.png"/>
 		<img id="lot_result" style="z-index: 9" />
+		<img class="bottom_img"  id="water_back" src="../img/item2_1_back.png"/>
 		<div class="button_container">
-			<img class="bottom_img" src="../img/item2_1_back.png"/>
-			  <a href="../index.html"><img class="item-img" style="  height: 9.677%; top: 84.114%; left: 75.098%;" src="../img/menu_item_5.png" /></a>
+			<a href="item2_2.html"><img class="item-img" id="btn_To_2_2" style="width:auto; left: 50%;/* 使用 transform 來實現水平居中 */  transform: translateX(-50%); z-index: 11;" src="../img/item2_btn_end.png" /></a>		
 		</div>
+		
     </div>
 	
 
@@ -91,6 +81,9 @@
         document.addEventListener('DOMContentLoaded', function () {
           
             var lotResult = document.getElementById('lot_result');
+            var waterBack = document.getElementById('water_back');
+            var whiteBack = document.getElementById('back_white');
+            var btn2_2 = document.getElementById('btn_To_2_2');
 
             // 隨機抽取 lot 圖片
             var lotImages = [
@@ -108,9 +101,34 @@
 			
             // 將 lot 圖片設定為抽取的結果
             lotResult.src = selectedLotImage;
+			var backgroundImageWidth = window.localStorage.getItem('backgroundImageWidth');
+			console.log("即將使用的圖片寬度,是=>" +backgroundImageWidth);
+			whiteBack.style.width = backgroundImageWidth + 'px';
+			lotResult.style.width = backgroundImageWidth + 'px';
+			waterBack.style.width = backgroundImageWidth + 'px';
+			const buttonHeightRatio = 0.0475;
+			var backgroundImgaeHeight = getComputedStyle(whiteBack).height;
+			console.log("即將使用的背景總高,是=>" + backgroundImgaeHeight);
+			// 將 backgroundImgaeHeight 字符串轉換為數字
+			var heightNumber = parseFloat(backgroundImgaeHeight);
+			// 計算按鈕高度
+			var buttonHeight = buttonHeightRatio * heightNumber + 'px';
+			btn2_2.style.height = buttonHeight;
+			console.log("即將使用的按鈕高度,是=>" + buttonHeight);
 			
-
-
+			// 計算按鈕位置
+//			const backgroundWidth = parseFloat(backgroundImageWidth);
+			const backgroundHeight = parseFloat(backgroundImgaeHeight);
+			const buttonTopRatio = 0.892727;
+//			const buttonLeftRatio = 0.362962;
+			// 計算按鈕的 top 和 left
+			const buttonTop = buttonTopRatio * backgroundHeight;
+//			const buttonLeft = buttonLeftRatio * backgroundWidth;
+			
+			// 設置按鈕的位置
+			btn2_2.style.top = buttonTop + 'px';
+//			btn2_2.style.left = buttonLeft + 'px';
+		
         });
     </script>
 </body>
