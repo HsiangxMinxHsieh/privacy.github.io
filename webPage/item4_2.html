@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>龍行四海</title>
+    <script src="../script/common.js" defer></script>
+    <style>
+		
+	.item-btn { 
+  		position: absolute;
+  		z-index: 4;
+		
+	 }
+		
+     .item-img { 
+  		position: absolute;
+  		z-index: 4;
+		position: absolute;
+    	transition: opacity 3s ease;
+	 }
+		
+	  .item-effect {
+    	position: absolute;
+    	opacity: 0;
+    	transition: opacity 3s ease;
+  	 }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;border: 0;">
+    <div class="container">
+        <img class="background-img" id="background-image" src="../img/item4_2_back.png" alt="Background Image" />
+        <div class="item-frame" id="frame-item">
+            <a href="index.html"><img class="item-btn" style="  height: 10.677%; top: 82.2916%; left: 0.7407%;" src="../img/menu_item_5.png"/></a>
+            <img class="item-img" id="item1" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_1.png"  onclick="handleItemClick(1)"/>
+<!--
+            <img class="item-img" id="item2" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_2.png"  onclick="handleItemClick(2)"/>
+            <img class="item-img" id="item3" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_3.png"  onclick="handleItemClick(3)"/>
+            <img class="item-img" id="item4" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_4.png"  onclick="handleItemClick(4)"/>
+            <img class="item-img" id="item5" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_5.png"  onclick="handleItemClick(5)"/>
+            <img class="item-img" id="item6" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_6.png"  onclick="handleItemClick(6)"/>
+            <img class="item-img" id="item7" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_7.png"  onclick="handleItemClick(7)"/>
+            <img class="item-img" id="item8" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_8.png"  onclick="handleItemClick(8)"/>
+            <img class="item-img" id="item9" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_9.png"  onclick="handleItemClick(9)"/>
+-->
+			<img class="item-effect" id="item1_effect" style="  height: 18.8021%; top: 1.2%; left: 14.1581%;" src="../img/item4_2_item_1_effect.png" />
+                      
+        </div>
+    </div>
+	<script>
+	 function handleItemClick(itemId) {
+    
+    var itemImages = document.querySelectorAll('.item-img');
+    itemImages.forEach(function(item) {
+      item.style.opacity = 0;
+    });
+
+    
+    var effectId = "item" + itemId + "_effect";
+    var effect = document.getElementById(effectId);
+    if (effect) {
+      effect.style.opacity = 1;
+    }
+
+    
+    setTimeout(function() {
+    
+     var links = ["link1", "link2", "link3"];
+      var url = links[itemId - 1];
+      window.open(url, '_blank');
+		
+		restoreOriginalState();
+    }, 2000);
+  }
+		
+		function restoreOriginalState() {
+    // Fade in all item images
+    var itemImages = document.querySelectorAll('.item-img');
+    itemImages.forEach(function(item) {
+      item.style.opacity = 1;
+    });
+
+    // Fade out all effects
+    var itemEffects = document.querySelectorAll('.item-effect');
+    itemEffects.forEach(function(effect) {
+      effect.style.opacity = 0;
+    });
+
+    currentItem = null;
+  }
+	</script>
+</body>
+
+</html>

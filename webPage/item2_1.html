@@ -84,8 +84,7 @@
             var waterBack = document.getElementById('water_back');
             var whiteBack = document.getElementById('back_white');
             var btn2_2 = document.getElementById('btn_To_2_2');
-
-            // 隨機抽取 lot 圖片
+            
             var lotImages = [
                 '../img/item2_lot1.png',
                 '../img/item2_lot2.png',
@@ -99,7 +98,7 @@
             var randomLotIndex = Math.floor(Math.random() * lotImages.length);
             var selectedLotImage = lotImages[randomLotIndex];
 			
-            // 將 lot 圖片設定為抽取的結果
+
             lotResult.src = selectedLotImage;
 			var backgroundImageWidth = window.localStorage.getItem('backgroundImageWidth');
 			console.log("即將使用的圖片寬度,是=>" +backgroundImageWidth);
@@ -109,26 +108,18 @@
 			const buttonHeightRatio = 0.0475;
 			var backgroundImgaeHeight = whiteBack.offsetHeight;
 			console.log("即將使用的背景總高,是=>" + backgroundImgaeHeight);
-			// 將 backgroundImgaeHeight 字符串轉換為數字
+
 			var heightNumber = parseFloat(backgroundImgaeHeight);
-			// 計算按鈕高度
+
 			var buttonHeight = buttonHeightRatio * heightNumber + 'px';
 			btn2_2.style.height = buttonHeight;
 			console.log("即將使用的按鈕高度,是=>" + buttonHeight);
 			
-			// 計算按鈕位置
-//			const backgroundWidth = parseFloat(backgroundImageWidth);
 			const backgroundHeight = parseFloat(backgroundImgaeHeight);
 			const buttonTopRatio = 0.892727;
-//			const buttonLeftRatio = 0.362962;
-			// 計算按鈕的 top 和 left
-			const buttonTop = buttonTopRatio * backgroundHeight;
-//			const buttonLeft = buttonLeftRatio * backgroundWidth;
-			
-			// 設置按鈕的位置
-			btn2_2.style.top = buttonTop + 'px';
-//			btn2_2.style.left = buttonLeft + 'px';
-		
+			const buttonTop = buttonTopRatio * backgroundHeight;		
+
+			btn2_2.style.top = buttonTop + 'px';		
         });
     </script>
 </body>

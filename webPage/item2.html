@@ -46,12 +46,9 @@
     </div>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
-        // 等待文檔載入完成後執行以下程式碼
+        
+        var pageMask = document.getElementById('page_mask');        			
 
-        // 獲取元素
-        var pageMask = document.getElementById('page_mask');        
-			
-//			 // 延遲3秒使乾掛詩籤無法點擊
             setTimeout(function () {
                 pageMask.style.display = 'none';
             },3000);
