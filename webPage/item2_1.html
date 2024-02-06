@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
  	<title>乾掛詩籤</title>
-<!--    <script src="../script/common.js" defer></script>-->
+
 
     <style>
 		.main {
@@ -78,13 +78,12 @@
 	
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+          document.addEventListener('DOMContentLoaded', function () {
           
             var lotResult = document.getElementById('lot_result');
             var waterBack = document.getElementById('water_back');
-            var whiteBack = document.getElementById('back_white');
-            var btn2_2 = document.getElementById('btn_To_2_2');
-            
+            var whiteBack = document.getElementById('back_white');    
+
             var lotImages = [
                 '../img/item2_lot1.png',
                 '../img/item2_lot2.png',
@@ -98,29 +97,40 @@
             var randomLotIndex = Math.floor(Math.random() * lotImages.length);
             var selectedLotImage = lotImages[randomLotIndex];
 			
-
+        
             lotResult.src = selectedLotImage;
 			var backgroundImageWidth = window.localStorage.getItem('backgroundImageWidth');
 			console.log("即將使用的圖片寬度,是=>" +backgroundImageWidth);
 			whiteBack.style.width = backgroundImageWidth + 'px';
 			lotResult.style.width = backgroundImageWidth + 'px';
-			waterBack.style.width = backgroundImageWidth + 'px';
+			waterBack.style.width = backgroundImageWidth + 'px';		
+        });
+		
+		
+		window.onload = function() {
+			var whiteBack = document.getElementById('back_white');
+			var btn2_2 = document.getElementById('btn_To_2_2');
 			const buttonHeightRatio = 0.0475;
 			var backgroundImgaeHeight = whiteBack.offsetHeight;
 			console.log("即將使用的背景總高,是=>" + backgroundImgaeHeight);
-
+			
 			var heightNumber = parseFloat(backgroundImgaeHeight);
-
+			
 			var buttonHeight = buttonHeightRatio * heightNumber + 'px';
 			btn2_2.style.height = buttonHeight;
 			console.log("即將使用的按鈕高度,是=>" + buttonHeight);
 			
-			const backgroundHeight = parseFloat(backgroundImgaeHeight);
+			
+			var backgroundHeight = parseFloat(backgroundImgaeHeight);
 			const buttonTopRatio = 0.892727;
-			const buttonTop = buttonTopRatio * backgroundHeight;		
 
+			
+			var buttonTop = buttonTopRatio * backgroundHeight;
+			
+			
 			btn2_2.style.top = buttonTop + 'px';		
-        });
+		
+		};
     </script>
 </body>
 
