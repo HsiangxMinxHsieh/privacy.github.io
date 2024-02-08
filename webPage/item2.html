@@ -9,6 +9,13 @@
     <script src="../script/common.js" defer></script>
 	
 	<style>
+		 #loading {
+        	position: fixed;
+        	top: 50%;
+        	left: 50%;
+        	transform: translate(-50%, -50%);
+        	z-index: 90;
+    	}
 		  #page_mask {
 			top: 50%;
 			left: 50%;
@@ -35,6 +42,9 @@
 </head>
 
 <body style="margin: 0; padding: 0;border: 0;">
+	  <div id="loading">
+        <img src="../img/loading.gif" alt="Loading..." />
+    </div>
   <div class="container">
         <img class="background-img" id="background-image" src="../img/item2_back.png" alt="Background Image" />
         <div class="item-frame" id="frame-item">
@@ -48,12 +58,18 @@
 		document.addEventListener('DOMContentLoaded', function () {
         
         var pageMask = document.getElementById('page_mask');        			
-
-            setTimeout(function () {
+ 		var loading = document.getElementById('loading');
+            window.addEventListener('load', function() {
+                loading.style.display = 'none';
+				   setTimeout(function () {
                 pageMask.style.display = 'none';
             },3000);
+            });
+         
 
     });
+		
+
 		
 	</script>
 
